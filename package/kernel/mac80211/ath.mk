@@ -1,6 +1,6 @@
 PKG_DRIVERS += \
 	ath ath5k ath6kl ath6kl-sdio ath6kl-usb ath9k ath9k-common ath9k-htc ath10k ath10k-smallbuffers \
-	ath11k ath11k-ahb ath11k-pci ath12k ath12k-pci carl9170 owl-loader ar5523 wil6210
+	ath11k ath11k-ahb ath11k-pci ath12k carl9170 owl-loader ar5523 wil6210
 
 PKG_CONFIG_DEPENDS += \
 	CONFIG_PACKAGE_ATH_DEBUG \
@@ -68,7 +68,6 @@ config-$(call config_package,ath11k) += ATH11K
 config-$(call config_package,ath12k) += ATH12K
 config-$(call config_package,ath11k-ahb) += ATH11K_AHB
 config-$(call config_package,ath11k-pci) += ATH11K_PCI
-config-$(call config_package,ath12k-pci) += ATH12K_PCI
 
 config-$(call config_package,ath5k) += ATH5K ATH5K_PCI
 
@@ -352,10 +351,10 @@ endef
 
 define KernelPackage/ath12k
   $(call KernelPackage/mac80211/Default)
-  TITLE:=Qualcomm 802.11ax wireless chipset support (common code)
+  TITLE:=Qualcomm 802.11be wireless chipset support (common code)
   URL:=https://wireless.wiki.kernel.org/en/users/drivers/ath12k
   DEPENDS+= +kmod-ath +@DRIVER_11AC_SUPPORT +@DRIVER_11AX_SUPPORT \
-   + at DRIVER_11BE_SUPPORT +kmod-crypto-michael-mic +ATH11K_THERMAL:kmod-hwmon-core +ATH11K_THERMAL:kmod-thermal
+  +@DRIVER_11BE_SUPPORT +kmod-crypto-michael-mic +ATH12K_THERMAL:kmod-hwmon-core +ATH12K_THERMAL:kmod-thermal +kmod-qrtr-mhi 
   FILES:=$(PKG_BUILD_DIR)/drivers/soc/qcom/qmi_helpers.ko \
   $(PKG_BUILD_DIR)/drivers/net/wireless/ath/ath12k/ath12k.ko
 endef
@@ -372,15 +371,6 @@ define KernelPackage/ath12k/config
                depends on PACKAGE_kmod-ath12k
                default y if TARGET_qualcommax
 
-endef
-
-define KernelPackage/ath12k-pci
-  $(call KernelPackage/mac80211/Default)
-  TITLE:=Qualcomm 802.11be PCI wireless chipset support
-  URL:=https://wireless.wiki.kernel.org/en/users/drivers/ath12k
-  DEPENDS+= @PCI_SUPPORT +kmod-qrtr-mhi +kmod-ath12k
-  FILES:=$(PKG_BUILD_DIR)/drivers/net/wireless/ath/ath12k/ath12k_pci.ko
-  AUTOLOAD:=$(call AutoProbe,ath12k_pci)
 endef
 
 define KernelPackage/carl9170
