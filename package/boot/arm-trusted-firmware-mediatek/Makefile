@@ -35,6 +35,7 @@ define Trusted-Firmware-A/Default
   DRAM_USE_COMB:=
   RAM_BOOT_UART_DL:=
   USE_UBI:=
+  DDR4_4BG_MODE:=
 endef
 
 define Trusted-Firmware-A/mt7622-nor-1ddr
@@ -398,6 +399,7 @@ define Trusted-Firmware-A/mt7988-nor-ddr4
   BUILD_SUBTARGET:=filogic
   PLAT:=mt7988
   DDR_TYPE:=ddr4
+  DDR4_4BG_MODE:=1
 endef
 
 define Trusted-Firmware-A/mt7988-emmc-ddr4
@@ -406,6 +408,7 @@ define Trusted-Firmware-A/mt7988-emmc-ddr4
   BUILD_SUBTARGET:=filogic
   PLAT:=mt7988
   DDR_TYPE:=ddr4
+  DDR4_4BG_MODE:=1
 endef
 
 define Trusted-Firmware-A/mt7988-sdmmc-ddr4
@@ -414,6 +417,7 @@ define Trusted-Firmware-A/mt7988-sdmmc-ddr4
   BUILD_SUBTARGET:=filogic
   PLAT:=mt7988
   DDR_TYPE:=ddr4
+  DDR4_4BG_MODE:=1
 endef
 
 define Trusted-Firmware-A/mt7988-snand-ddr4
@@ -422,6 +426,7 @@ define Trusted-Firmware-A/mt7988-snand-ddr4
   BUILD_SUBTARGET:=filogic
   PLAT:=mt7988
   DDR_TYPE:=ddr4
+  DDR4_4BG_MODE:=1
 endef
 
 define Trusted-Firmware-A/mt7988-spim-nand-ddr4
@@ -430,6 +435,7 @@ define Trusted-Firmware-A/mt7988-spim-nand-ddr4
   BUILD_SUBTARGET:=filogic
   PLAT:=mt7988
   DDR_TYPE:=ddr4
+  DDR4_4BG_MODE:=1
 endef
 
 define Trusted-Firmware-A/mt7988-ram-comb
@@ -439,6 +445,7 @@ define Trusted-Firmware-A/mt7988-ram-comb
   PLAT:=mt7988
   DRAM_USE_COMB:=1
   RAM_BOOT_UART_DL:=1
+  DDR4_4BG_MODE:=1
   HIDDEN:=
   DEFAULT:=TARGET_mediatek_filogic
 endef
@@ -449,6 +456,7 @@ define Trusted-Firmware-A/mt7988-nor-comb
   BUILD_SUBTARGET:=filogic
   PLAT:=mt7988
   DRAM_USE_COMB:=1
+  DDR4_4BG_MODE:=1
 endef
 
 define Trusted-Firmware-A/mt7988-emmc-comb
@@ -457,6 +465,7 @@ define Trusted-Firmware-A/mt7988-emmc-comb
   BUILD_SUBTARGET:=filogic
   PLAT:=mt7988
   DRAM_USE_COMB:=1
+  DDR4_4BG_MODE:=1
 endef
 
 define Trusted-Firmware-A/mt7988-sdmmc-comb
@@ -465,6 +474,7 @@ define Trusted-Firmware-A/mt7988-sdmmc-comb
   BUILD_SUBTARGET:=filogic
   PLAT:=mt7988
   DRAM_USE_COMB:=1
+  DDR4_4BG_MODE:=1
 endef
 
 define Trusted-Firmware-A/mt7988-snand-comb
@@ -490,6 +500,7 @@ define Trusted-Firmware-A/mt7988-spim-nand-comb
   BUILD_SUBTARGET:=filogic
   PLAT:=mt7988
   DRAM_USE_COMB:=1
+  DDR4_4BG_MODE:=1
 endef
 
 define Trusted-Firmware-A/mt7988-spim-nand-ubi-comb
@@ -498,6 +509,7 @@ define Trusted-Firmware-A/mt7988-spim-nand-ubi-comb
   BUILD_SUBTARGET:=filogic
   PLAT:=mt7988
   DRAM_USE_COMB:=1
+  DDR4_4BG_MODE:=1
   USE_UBI:=1
 endef
 
